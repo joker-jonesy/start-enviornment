@@ -6,6 +6,7 @@
 const Sequelize = require('sequelize')
 const pkg = require('../../package.json')
 
+// this is grabbing the database name form your package.json file
 const dbName = process.env.NODE_ENV === 'test' ? `${pkg.name}-test` : pkg.name
 console.log(`Opening database connection to ${dbName}`)
 
