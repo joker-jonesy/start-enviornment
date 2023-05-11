@@ -1,7 +1,7 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 
-const initState = [];
+const initialState = [];
 
 export const fetchCharacters = createAsyncThunk('allCharacters', async ()=>{
     try {
@@ -14,7 +14,7 @@ export const fetchCharacters = createAsyncThunk('allCharacters', async ()=>{
 
 const characterSlice = createSlice({
     name: 'characters',
-    initState,
+    initialState,
     reducers:{},
     extraReducers:(builder)=>{
         builder.addCase(fetchCharacters.fulfilled, (state, action)=>{
