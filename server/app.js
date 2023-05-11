@@ -5,7 +5,8 @@ const app = express()
 const characterRouter = require('./routes/characters');
 
 // static middleware
-app.use(express.static(path.join(__dirname, '..','public')))
+app.use(express.static(path.join(__dirname, '../public')))
+app.use(cors())
 
 app.use('/api/characters', characterRouter);
 
@@ -14,9 +15,9 @@ app.use((err,req,res)=>{
   res.send(err.message);
 })
 
-app.use(cors())
 
-app.use("*", (req, res) => {
+
+app.use("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
